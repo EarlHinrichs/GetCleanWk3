@@ -69,11 +69,27 @@ names(activityName) = "activity"
 valuesOfInterest<-values[,grepl("mean\\(\\)|std\\(\\)|meanFreq\\(\\)",features[,2])]
     cat("dim(valuesOfInterest):", dim(valuesOfInterest), "\n")
 
-    #Finally! Nice names, number of rows match. Time for a cbind.
+    #Nice names, number of rows match. Time for a cbind.
     #The resulting table is written to the working directory
     #Read back with read.table("tidy.txt",header=TRUE)
 tidy<-cbind(subject,activityName,valuesOfInterest)
     cat("dim(tidy):", dim(tidy), "\n")
-tidy.txt <- "tidy.txt"
+tidy1.txt <- "tidy.txt"
 write.table(tidy, tidy.txt, row.name=FALSE)
+
+    #Now find the average for each variable for subject+activity
+    #Use ddply in plyr for this operation
+    #write the results to the file means.txt in the working directory
+    #Read back with read.table("means.txt",header=TRUE)
+library(plyr)
+means<-ddply(tidy, .(subject,activityName), numcolwise(mean))
+means.txt <- "means.txt"
+write.table(means, means.txt, row.name=FALSE)
+    cat( "Averages written to ", means.txt, "\n")
+    cat("dim(means):", dim(means), "\n")
+    
+    #Write out variable names for documentation
+write.table(names(valuesOfInterest), "variableNames.txt", row.names=FALSE, col.names=FALSE, quote=FALSE)
+    cat( "Variable names written to variableNames.txt\n")
+
 
