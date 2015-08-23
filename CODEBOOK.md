@@ -1,10 +1,11 @@
 
-# Get And Clean - Week 3 Assignment
+## Get And Clean - Week 3 Assignment
 Programming Assignment for Get and Clean Data class, week 3 
 
-Analysis Script: run_analysis.R
 
 Original Data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+
+Analysis Script: run_analysis.R
 
 Files Generated:
 

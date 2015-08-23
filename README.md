@@ -46,8 +46,8 @@ used to merge the `activity` object with the `activities` object, then subsettin
 
 The assignment asks for mean and std values. This could be taken to mean variables specifically named
 mean or std, or variables which are mean or std measurements. I decided to play it safe and take
-the latter meaning, and choose the variables names `mean()`, `std()`, and `meanFreq()`. There as some
-variable that have mean in the name, but are not means. For example `angle(tBodyAccMean,gravity)` uses
+the latter meaning, and choose the variables names `mean()`, `std()`, and `meanFreq()`. There are some
+variables that have mean in the name, but are not means. For example `angle(tBodyAccMean,gravity)` uses
 a mean value in a calculation, but is itself not a mean value.
 
 Finally `cbind()` combines `subject`, `activityNames`, and `valuesOfInterest` to build the tidy dataset for
