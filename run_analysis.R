@@ -13,13 +13,16 @@ activities    <- read.table(activities.txt)
     cat("dim(activities):", dim(activities), "\n")
     
     #The various *train files should have the same number of rows.
+    #The number of columns in the values* object should match the columns in features
 subjectTrain.txt <- file.path(rawFiles,"train","subject_train.txt",fsep="\\")
 subjectTrain     <- read.table(subjectTrain.txt)
     cat("dim(subjectTrain):", dim(subjectTrain), "\n")
+
 activityTrain.txt <- file.path(rawFiles,"train","y_train.txt",fsep="\\")
 activityTrain     <- read.table(activityTrain.txt)
     cat("dim(activityTrain):", dim(activityTrain), "\n")
     stopifnot( nrow(subjectTrain) == nrow(activityTrain) )
+
 valuesTrain.txt <- file.path(rawFiles,"train","X_train.txt",fsep="\\")
 valuesTrain     <- read.table(valuesTrain.txt)
     cat("dim(valuesTrain):", dim(valuesTrain), "\n")
